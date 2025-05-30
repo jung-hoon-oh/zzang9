@@ -1,104 +1,79 @@
 body {
-  font-family: sans-serif;
   margin: 0;
-  background: #f0f0f0;
-  text-align: center;
+  overflow: hidden;
 }
 
-header {
-  background: #333;
-  padding: 1rem;
-}
-
-.logo {
-  width: 120px;
-}
-
-main {
-  margin-top: 2rem;
-}
-
-h1 {
-  font-size: 1.5rem;
-  margin: 2rem 0;
-  opacity: 0;
-  animation-fill-mode: forwards;
-}
-
-.text1 {
-  animation: fadeInOut 3s ease-in-out forwards;
-}
-
-.text2 {
-  animation: fadeIn 3s ease-in-out 3s forwards; /* 3초 후 나타나기 */
-}
-
-/* 이미지와 문구 */
-.image-container {
+.container {
   position: relative;
-  width: 150px;
-  margin: 2rem auto;
+  width: 100vw;
+  height: 100vh;
 }
 
-.person-image {
+.background {
+  position: absolute;
   width: 100%;
-  transform: translateY(200px);
-  animation: riseUp 3s ease-out 6s forwards; /* 두 번째 문구 뜬 후 등장 */
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
+.runner {
+  position: absolute;
+  bottom: 50px; /* 트랙 위에서 달리도록 */
+  z-index: 2;
+  object-fit: contain;
+}
+
+/* 지누션: 가로 크기를 절반으로 */
+.jinusion {
+  width: 25vw;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: runUpJinusion 8s linear forwards;
+}
+
+/* 선형: 선형적으로 작게 + 오른쪽으로 더 이동 */
+.sunhyeong {
+  width: 10vw;
+  bottom: 0;
+  left: 60%; /* 중앙(50%)보다 오른쪽으로 */
+  transform: translateX(-50%);
+  animation: runUpSunhyeong 8s linear forwards;
+  animation-delay: 1s;
+}
+
+/* 문구 */
 .caption {
-  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 0.5rem;
-  animation: fadeIn 2s 9s forwards; /* 이미지 올라온 뒤 3초 후 등장 */
+  opacity: 0;
+  z-index: 3;
+  animation: fadeIn 2s ease 7s forwards;
 }
 
-/* 텍스트 페이드인/아웃 */
-@keyframes fadeInOut {
-  0% { opacity: 0; transform: translateY(20px); }
-  20%, 80% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-20px); }
+/* 달리기(위로 올라가는) 애니메이션 */
+@keyframes runUpJinusion {
+  to {
+    transform: translateX(-50%) translateY(-60vh);
+  }
+}
+
+@keyframes runUpSunhyeong {
+  to {
+    transform: translateX(-50%) translateY(-70vh);
+  }
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-/* 이미지 올라오는 효과 */
-@keyframes riseUp {
-  to { transform: translateY(0); }
-}
-
-/* 폭죽 */
-.firework {
-  position: absolute;
-  top: 50%;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: gold;
-  opacity: 0;
-}
-
-.firework-left {
-  left: -20px;
-  animation: explodeLeft 1s 9s forwards; /* 주선형 등장 후 폭죽 */
-}
-
-.firework-right {
-  right: -20px;
-  animation: explodeRight 1s 9s forwards;
-}
-
-@keyframes explodeLeft {
-  0% { transform: scale(1); opacity: 1; background: gold; }
-  50% { transform: translate(-50px, -50px) scale(2); opacity: 1; background: orange; }
-  100% { transform: translate(-100px, -100px) scale(0.5); opacity: 0; }
-}
-
-@keyframes explodeRight {
-  0% { transform: scale(1); opacity: 1; background: gold; }
-  50% { transform: translate(50px, -50px) scale(2); opacity: 1; background: orange; }
-  100% { transform: translate(100px, -100px) scale(0.5); opacity: 0; }
+  to {
+    opacity: 1;
+  }
 }
