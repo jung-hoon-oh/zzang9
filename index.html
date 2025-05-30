@@ -1,110 +1,29 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>서든어택 허접대결 "개미 vs 김세일중"</title>
-<style>
-  @font-face {
-    font-family: 'Impact', sans-serif;
-  }
-  body {
-    font-family: 'Impact', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-    color: #000;
-  }
-  header {
-    text-align: center;
-    padding: 40px;
-    background-image: url("배경.jpg");
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-  }
-  header h1 {
-    font-size: 40px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-  }
-  main {
-    padding: 40px;
-    background: #fff;
-  }
-  .photo-comparison {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    margin: 20px 0;
-  }
-  .photo-comparison img {
-    max-width: 300px;
-    height: auto;
-    border: 2px solid #333;
-  }
-  .winner-section {
-    text-align: center;
-    margin-top: 20px;
-  }
-  .winner-section p {
-    font-size: 24px;
-    margin: 10px 0;
-  }
-  .winner-section button {
-    font-size: 18px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  .winner-section button:hover {
-    background-color: #45a049;
-  }
-  footer {
-    text-align: center;
-    padding: 10px;
-    background: #333;
-    color: #fff;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <title>NRC 홈페이지</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <img src="nrc.png" alt="NRC 로고" class="logo">
+  </header>
 
-<header>
-  <h1>서든어택 허접대결 "개미 vs 김세일중"</h1>
-</header>
+  <main>
+    <!-- 첫 번째 문구 -->
+    <h1 class="text1">금요일 18시까지 일하는 사람은 누구?</h1>
 
-<main>
-  <h2>서든어택 클랜명 '클랜' 최약체 대결</h2>
-  <p>이 홈페이지는 누가누가 더 서든을 못하는가를 대결하는 장입니다.</p>
-  <p>과연 누가 우리 클랜의 최약체일까요?!</p>
+    <!-- 두 번째 문구 -->
+    <h1 class="text2">마라탕 먹고 매운 사람은 누구?</h1>
 
-  <div class="photo-comparison">
-    <div>
-      <h3>세일중</h3>
-      <img src="세일중.jpeg" alt="세일중의 사진">
+    <!-- 이미지와 문구 -->
+    <div class="image-container">
+      <img src="1.PNG" alt="주선형 이미지" class="person-image">
+      <p class="caption">바로 주선형!</p>
+      <div class="firework firework-left"></div>
+      <div class="firework firework-right"></div>
     </div>
-    <h2>VS</h2>
-    <div>
-      <h3>개미</h3>
-      <img src="개미.jpeg" alt="개미의 사진">
-    </div>
-  </div>
-
-  <!-- 사진 아래에 "과연 승자는?"과 버튼을 가운데 배치 -->
-  <div class="winner-section">
-    <p>과연 승자는?</p>
-    <button onclick="location.href='winner.html'">결과 보러 가기</button>
-  </div>
-</main>
-
-<footer>
-  &copy; 2025 똥멍청이 대결
-</footer>
-
+  </main>
 </body>
 </html>

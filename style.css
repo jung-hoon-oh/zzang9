@@ -1,0 +1,104 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #f0f0f0;
+  text-align: center;
+}
+
+header {
+  background: #333;
+  padding: 1rem;
+}
+
+.logo {
+  width: 120px;
+}
+
+main {
+  margin-top: 2rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 2rem 0;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.text1 {
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+
+.text2 {
+  animation: fadeIn 3s ease-in-out 3s forwards; /* 3초 후 나타나기 */
+}
+
+/* 이미지와 문구 */
+.image-container {
+  position: relative;
+  width: 150px;
+  margin: 2rem auto;
+}
+
+.person-image {
+  width: 100%;
+  transform: translateY(200px);
+  animation: riseUp 3s ease-out 6s forwards; /* 두 번째 문구 뜬 후 등장 */
+}
+
+.caption {
+  opacity: 0;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  animation: fadeIn 2s 9s forwards; /* 이미지 올라온 뒤 3초 후 등장 */
+}
+
+/* 텍스트 페이드인/아웃 */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  20%, 80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 이미지 올라오는 효과 */
+@keyframes riseUp {
+  to { transform: translateY(0); }
+}
+
+/* 폭죽 */
+.firework {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: gold;
+  opacity: 0;
+}
+
+.firework-left {
+  left: -20px;
+  animation: explodeLeft 1s 9s forwards; /* 주선형 등장 후 폭죽 */
+}
+
+.firework-right {
+  right: -20px;
+  animation: explodeRight 1s 9s forwards;
+}
+
+@keyframes explodeLeft {
+  0% { transform: scale(1); opacity: 1; background: gold; }
+  50% { transform: translate(-50px, -50px) scale(2); opacity: 1; background: orange; }
+  100% { transform: translate(-100px, -100px) scale(0.5); opacity: 0; }
+}
+
+@keyframes explodeRight {
+  0% { transform: scale(1); opacity: 1; background: gold; }
+  50% { transform: translate(50px, -50px) scale(2); opacity: 1; background: orange; }
+  100% { transform: translate(100px, -100px) scale(0.5); opacity: 0; }
+}
